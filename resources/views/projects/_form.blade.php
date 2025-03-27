@@ -1,4 +1,11 @@
 @csrf
+@if ($project->image)
+<div class="card" style="width: 18rem;">
+
+
+<img class="card-img-top" src="/storage/{{$project->image}}" alt="{{ $project->title }}">
+</div>
+@endif
 
 
 <div class="mb-3">
