@@ -24,7 +24,7 @@
                 <div class="card" style="width: 18rem;">
 
 
-                <img class="card-img-top" style="height: 150px; object-fit: cover "  src="/storage/{{$project->image}}" alt="{{ $project->title }}">
+                <img class="card-img-top" style="height: 150px; object-fit: cover"  src="/storage/{{$project->image}}" alt="{{ $project->title }}">
                 </div>
                 @endif
 
