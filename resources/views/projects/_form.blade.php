@@ -13,6 +13,21 @@
     <input name="image" class="form-control" type="file" id="formFile">
   </div>
 
+  <div class="form-group">
+    <label for="category_id">Categoria del proyecto</label>
+    <select name="category_id" id="category_id" class="form-control border-0 bg-light shadow-sm">
+
+        <option value="">Seleccionar categoria</option>
+
+        @foreach ($categories as $id => $title )
+
+        <option value="{{$id}}" @if($id == old('category_id', $project->category_id)) selected @endif> {{$title}}  </option>
+        @endforeach
+
+
+    </select>
+  </div>
+
 
 <div class="form-group">
     <label for="title">Título del proyecto</label>

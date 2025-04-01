@@ -29,6 +29,9 @@ Route::get('/portafolio/crear', [ProjectController::class,'create'])->name('proj
 Route::post('/portafolio', [ProjectController::class,'store'])->name('projects.store');
 Route::get('/portafolio/{project}', [ProjectController::class,'show'])->name('projects.show');
 
+Route::get('/categoria/{category}', [ProjectController::class,'categoriashow'])->name('categories.show');
+
+
 
 Route::get('/portafolio/{project}/editar', [ProjectController::class,'edit'])->name('projects.edit');
 

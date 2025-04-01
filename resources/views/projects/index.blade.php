@@ -15,10 +15,18 @@
     <p class="lead text-secondary">Proyectos realizados Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
     <ul class="list-group">
         @forelse($projects as $project)
+        <div class="d-flex justify-content-between aling-items-center"  >
+
             <li class="list-group-item border-0 mb-3 shadow-sm">
                 <a class="text-secondary d-flex justify-content-between align-items-center"
                     href="{{ route('projects.show', $project) }}"
                 >
+                @if($project->category_id)
+
+
+               <a href="{{route('categories.show', $project->category)}}  " class="text-black float-right badge badge-primary">{{$project->category->title}}  </a>
+              @endif
+               </div>
 
                 @if ($project->image)
                 <div class="card" style="width: 18rem;">

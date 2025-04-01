@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\SaveProjectRequest;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Image;
+use App\Models\Category;
 
 
 class ProjectController extends Controller
@@ -20,9 +21,14 @@ class ProjectController extends Controller
     public function index()
     {
         return view('projects.index', [
-            'projects' => Project::latest()->paginate()
+            'projects' => Project::with('category')->latest()->paginate()
         ]);
     }
+
+    public function categoriashow(Category $category ){
+    return view('projects.index', ['projects'=>$category->projects()->with('category')->latest()->paginate()]);
+    }
+
 
     public function show(Project $project)
     {
@@ -34,7 +40,8 @@ class ProjectController extends Controller
     public function create()
     {
         return view('projects.create', [
-            'project' => new Project
+            'project' => new Project,
+            'categories' => Category::pluck('title', 'id')
         ]);
     }
 
@@ -57,7 +64,8 @@ class ProjectController extends Controller
     public function edit(Project $project)
     {
         return view('projects.edit', [
-            'project' => $project
+            'project' => $project,
+            'categories' => Category::pluck('title', 'id')
         ]);
     }
 

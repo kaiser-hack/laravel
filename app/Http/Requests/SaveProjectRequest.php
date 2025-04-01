@@ -27,6 +27,7 @@ class SaveProjectRequest extends FormRequest
             'title' => 'required',
             'url' => 'required',
             'description' => 'required',
+            'category_id'=> ['required','exists:categories,id'],
             'image'=>[
                 $this->route('project') ? 'nullable ': 'required',
           'mimes:jpeg,png'], //mimes:jpg,png
